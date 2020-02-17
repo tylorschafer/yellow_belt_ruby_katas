@@ -3,4 +3,13 @@
 # divisible by 5 and 3.  Otherwise just the input number
 
 def answer( input )
+  if input % 5 == 0 && input % 3 == 0
+    'fizzbuzz'
+  elsif input % 5 == 0
+    'buzz'
+  elsif input % 3 == 0
+    'fizz'
+  else
+    input
+  end
 end
