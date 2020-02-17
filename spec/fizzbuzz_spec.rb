@@ -1,27 +1,20 @@
 require 'rspec/given'
 require 'fizzbuzz'
 
-describe "#answer" do
-  When (:result) { answer(inputnumber) }
-  before { pending }
-
-  context "with an input number divisible by 3" do
-    Given(:inputnumber) { 3 }
-    Then { result.should == "fizz" }
+describe '#answer' do
+  it 'returns fizz with an input number divisible by 3' do
+    expect(answer(3)).to eq('fizz')
   end
 
-  context "with an input number divisible by 5" do
-    Given(:inputnumber) { 5 }
-    Then { result.should == "buzz" }
+  it 'returns buzz with an input number divisible by 5' do
+    expect(answer(5)).to eq('buzz')
   end
 
-  context "with an input number divisible by 5 and 3" do
-    Given(:inputnumber) { 15 }
-    Then { result.should == "fizzbuzz" }
+  it 'returns fizzbuzz with an input number divisible by 5 and 3' do
+    expect(answer(15)).to eq('fizzbuzz')
   end
 
-  context "with any other number" do
-    Given(:inputnumber) { 7 }
-    Then { result.should == 7 }
+  it 'returns the input number in all other scenarios' do
+    expect(answer(7)).to eq(7)
   end
 end
