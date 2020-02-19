@@ -2,32 +2,15 @@ require 'rspec/given'
 require 'tea_party'
 
 describe "#welcome" do
-
-  When (:result) { welcome(last_name, is_woman, is_sir) }
-  before { pending }
-  
-  context "with an woman" do
-    Given(:last_name) { "Austen" }
-    Given(:is_woman) { true }
-    Given(:is_sir) { false }
-    
-    Then { result.should == "Hello Ms. Austen" }
+  it 'Should return Ms. with a woman' do
+    expect(welcome('Austen', true, false)).to eq('Hello Ms. Austen')
   end
 
-    context "with an man" do
-    Given(:last_name) { "Orwell" }
-    Given(:is_woman) { false }
-    Given(:is_sir) { false }
-    
-    Then { result.should == "Hello Mr. Orwell" }
+  it 'Should return Mr. with a man' do
+    expect(welcome('Orwell', false, false)).to eq('Hello Mr. Orwell')
   end
 
-    context "with an knight" do
-    Given(:last_name) { "Newton" }
-    Given(:is_woman) { false }
-    Given(:is_sir) { true }
-    
-    Then { result.should == "Hello Sir Newton" }
+  it 'Should return Sir with a knight' do
+    expect(welcome('Newton', false, true)).to eq('Hello Sir Newton')
   end
-  
 end
